@@ -1,8 +1,8 @@
 var d = document.getElementById("dibujito"); //para traer el id
 var lienzo = d.getContext("2d"); //metodo del canva
 
-dibujarLinea("pink", 10, 300, 200, 10);
-dibujarLinea("blue", 300, 310, 10, 220);
+dibujarLinea("pink", 10, 300, 220, 10);
+dibujarLinea("blue", 300, 10, 10, 220);
 
 function dibujarLinea(color, xin, yin, xfin, yfin)
 {
