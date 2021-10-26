@@ -1,8 +1,26 @@
 var d = document.getElementById("dibujito"); //para traer el id
 var lienzo = d.getContext("2d"); //metodo del canva
+var lineas = 30;
+var l= 0;
+var colorcito = "Black"
+var yi, xf, xi, yf;
 
-dibujarLinea("pink", 10, 300, 220, 10);
-dibujarLinea("blue", 300, 10, 10, 220);
+
+while(l < lineas)
+{
+    yi= 10 * l;
+    xf = 10 * (l + 1);
+    dibujarLinea("red", 0, yi, xf, 300);
+    console.log("Linea "+l);
+    l = l + 1;
+}
+
+
+
+dibujarLinea(colorcito, 1 ,1 , 1, 299);
+dibujarLinea(colorcito, 1 ,299 , 299, 299);
+dibujarLinea(colorcito, 1 , 1 , 299, 1);
+dibujarLinea(colorcito, 299 ,1 , 299, 299);
 
 function dibujarLinea(color, xin, yin, xfin, yfin)
 {
