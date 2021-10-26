@@ -3,7 +3,7 @@ var lienzo = d.getContext("2d"); //metodo del canva
 var lineas = 30;
 var l= 0;
 var colorcito = "Black"
-var yi, xf, xi, yf;
+var yi, xf, xi, yf,yini, xini,yfinal, xfinal;
 
 
 while(l < lineas)
@@ -11,7 +11,19 @@ while(l < lineas)
     yi= 10 * l;
     xf = 10 * (l + 1);
     dibujarLinea("red", 0, yi, xf, 300);
+    xi= 300 - (10 * l);
+    yf = 10 * (l + 1);
+    dibujarLinea("pink", xi, 0, 0, yf);
+    yini= 300 - (10 * l);
+    xfinal = 290 - (10 * l);
+    dibujarLinea("orange", 300, yini, xfinal, 0); 
+    xini= 10 * (l +1);
+    yfinal = 290 - (10 * l);
+    dibujarLinea("yellow", xini, 300, 300, yfinal);
+    
+    
     console.log("Linea "+l);
+    
     l = l + 1;
 }
 
