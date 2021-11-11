@@ -10,14 +10,20 @@ var vaca={
     cargaOK: false
 };
 var cantidadv= aleatorio(0, 10);
-console.log(cantidadv);
+
 
 var pollo={
     url: "pollo.png",
     cargaOK: false
 };
 var cantidadp= aleatorio(0, 20);
-console.log(cantidadp);
+
+var cerdo={
+    url: "cerdo.png",
+    cargaOK: false
+};
+var cantidadc= aleatorio(0, 10);
+
 
 fondo.objeto =new Image();
 fondo.objeto.src =  fondo.url;
@@ -30,6 +36,10 @@ vaca.objeto.addEventListener("load", cargarVaca);
 pollo.objeto = new Image();
 pollo.objeto.src = pollo.url;
 pollo.objeto.addEventListener("load", cargarPollo);
+
+cerdo.objeto = new Image();
+cerdo.objeto.src = cerdo.url;
+cerdo.objeto.addEventListener("load", cargarCerdo);
 
 function cargarFondo()
 {
@@ -46,6 +56,12 @@ function cargarPollo()
     pollo.cargaOK = true;
     dibujar()
 }
+function cargarCerdo()
+{
+    cerdo.cargaOK = true;
+    dibujar()
+}
+
 
 function dibujar()
 {
@@ -76,6 +92,19 @@ function dibujar()
             x = x*40;
             y =  y*40;
             papel.drawImage(pollo.objeto , x, y);
+        }
+       
+    }
+    if (cerdo.cargaOK == true)
+    {
+
+        for(var c=0; c<cantidadc; c++)
+        {
+            var x = aleatorio(0, 6);
+            var y = aleatorio(0, 6);
+            x = x*80;
+            y =  y*80;
+            papel.drawImage(cerdo.objeto , x, y);
         }
        
     }
