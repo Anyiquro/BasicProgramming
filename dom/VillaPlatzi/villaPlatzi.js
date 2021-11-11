@@ -1,3 +1,14 @@
+var teclas= {
+    UP: 38,
+    DOWN: 40,
+    LEFT: 37,
+    RIGHT: 39
+}
+
+
+document.addEventListener("keydown", moverCerdo);
+
+
 var vp = document.getElementById("villa_platzi");
 var papel =vp.getContext("2d");
 
@@ -95,19 +106,43 @@ function dibujar()
         }
        
     }
+
+}
+moverCerdo(149, 149, 151, 151, papel);
+
+function moverCerdo(evento)
+{
+    papel.drawImage(cerdo.objeto , x, y);
+    var movimiento = 10;
     if (cerdo.cargaOK == true)
     {
-
-        for(var c=0; c<cantidadc; c++)
-        {
-            var x = aleatorio(0, 6);
-            var y = aleatorio(0, 6);
-            x = x*80;
-            y =  y*80;
-            papel.drawImage(cerdo.objeto , x, y);
-        }
-       
-    }
+   switch(evento.keyCode)
+   {
+       case teclas.DOWN:
+           moverCerdo(x, y, x, y + movimiento, papel);
+           y = y + movimiento;
+        console.log("abajo");
+       break;
+       case teclas.UP:
+        moverCerdo(x, y, x, y - movimiento, papel);
+        y = y - movimiento;
+        console.log("arriba");
+        break;
+        case teclas.LEFT:
+            moverCerdo( x, y, x - movimiento, y , papel);
+            x = x- movimiento;
+        console.log("Pa la izquierda");
+        break;
+        case teclas.RIGHT:
+        console.log("Pa la derecha");
+        moverCerdo(x, y, x + movimiento, y , papel);
+        x = x + movimiento;
+        break;
+        default:
+            console.log("Otra tecla");
+            break;      
+   }
+}
 }
 
 
