@@ -1,11 +1,17 @@
-var z
+var vp = document.getElementById("villa_platzi");
+var papel =vp.getContext("2d");
+var mapa = "tile.png";
 
+var fondo =new Image();
+fondo.src =  mapa;
+fondo.addEventListener("load", dibujar);
 
-for(var i=0; i<10; i++)
+function dibujar()
 {
-    z= aleatorio(5, 0);
-    document.write(z + ", ");
+    papel.drawImage(fondo, 0, 0);
 }
+
+
 
 function aleatorio(min, max)
 {
