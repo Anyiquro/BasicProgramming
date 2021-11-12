@@ -6,7 +6,7 @@ var teclas= {
 }
 
 
-document.addEventListener("keydown", moverCerdo);
+document.addEventListener("keydown", detectarMovimiento);
 
 
 var vp = document.getElementById("villa_platzi");
@@ -31,9 +31,11 @@ var cantidadp= aleatorio(0, 20);
 
 var cerdo={
     url: "cerdo.png",
-    cargaOK: false
+    cargaOK: false,
+    x: 200,
+    y: 200,
 };
-var cantidadc= aleatorio(0, 10);
+
 
 
 fondo.objeto =new Image();
@@ -106,43 +108,44 @@ function dibujar()
         }
        
     }
+    if (cerdo.cargaOK == true)
+    {
+        papel.drawImage(cerdo.objeto , cerdo.x, cerdo.y);
+    }
 
 }
-moverCerdo(149, 149, 151, 151, papel);
 
-function moverCerdo(evento)
+function detectarMovimiento(evento)
 {
-    papel.drawImage(cerdo.objeto , x, y);
+    console.log("moverCerdo");
     var movimiento = 10;
     if (cerdo.cargaOK == true)
     {
-   switch(evento.keyCode)
-   {
-       case teclas.DOWN:
-           moverCerdo(x, y, x, y + movimiento, papel);
-           y = y + movimiento;
-        console.log("abajo");
-       break;
-       case teclas.UP:
-        moverCerdo(x, y, x, y - movimiento, papel);
-        y = y - movimiento;
-        console.log("arriba");
-        break;
-        case teclas.LEFT:
-            moverCerdo( x, y, x - movimiento, y , papel);
-            x = x- movimiento;
-        console.log("Pa la izquierda");
-        break;
-        case teclas.RIGHT:
-        console.log("Pa la derecha");
-        moverCerdo(x, y, x + movimiento, y , papel);
-        x = x + movimiento;
-        break;
-        default:
-            console.log("Otra tecla");
+        switch(evento.keyCode)
+        {
+            case teclas.DOWN:
+                cerdo.y = cerdo.y + movimiento;
+                console.log("abajo");
+            break;
+            case teclas.UP:
+                cerdo.y = cerdo.y - movimiento;
+                console.log("arriba");
+            break;
+            case teclas.LEFT:
+                cerdo.x = cerdo.x - movimiento;
+                 console.log("Pa la izquierda");
+            break;
+            case teclas.RIGHT:
+                console.log("Pa la derecha");
+                cerdo.x = cerdo.x + movimiento;
+            break;
+            default:
+                console.log("Otra tecla");
             break;      
-   }
-}
+        }
+    }
+    dibujar();
+
 }
 
 
