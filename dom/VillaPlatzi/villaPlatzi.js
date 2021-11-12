@@ -5,9 +5,7 @@ var teclas= {
     RIGHT: 39
 }
 
-
 document.addEventListener("keydown", detectarMovimiento);
-
 
 var vp = document.getElementById("villa_platzi");
 var papel =vp.getContext("2d");
